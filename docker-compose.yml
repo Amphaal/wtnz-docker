@@ -1,0 +1,22 @@
+version: '2'
+services:
+ nginx:
+  image: webdevops/php-nginx:latest
+  container_name: nginx-server
+  ports:
+  - 80:80
+  volumes:
+  - /var/www:/app
+  - /root/wtnz-docker/wtnz.conf:/opt/docker/etc/nginx/vhost.common.d/wtnz.conf
+  restart: always
+  environment:
+  - PHP_DISPLAY_ERRORS=1
+ socketio:
+  image: voduytuan/docker-socketio:latest
+  container_name: socketio-server
+  ports:
+  - 3000:3000
+  volumes:
+  - /var/www/wtnz/users_data:/srv/users_data
+  - /var/www/socketnz/app.js:/srv/app.js
+  restart: always
