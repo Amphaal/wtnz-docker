@@ -7,7 +7,7 @@ services:
   - 80:80
   volumes:
   - /var/www:/app
-  - /root/wtnz-docker/wtnz.conf:/opt/docker/etc/nginx/vhost.common.d/wtnz.conf
+  - /root/dockerstacks/wtnz-docker/wtnz.conf:/opt/docker/etc/nginx/vhost.common.d/wtnz.conf
   restart: always
   environment:
   - PHP_DISPLAY_ERRORS=1
