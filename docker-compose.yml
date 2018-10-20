@@ -7,12 +7,13 @@ services:
   - 80:80
   volumes:
   - /var/www:/app
-  - /root/dockerstacks/wtnz-docker/wtnz.conf:/opt/docker/etc/nginx/vhost.common.d/wtnz.conf
+  - /root/dockerstacks/wtnz-docker/wtnz.conf:/opt/docker/etc/nginx/vhost.common.d/wtnz.conf 
   restart: always
   environment:
   - PHP_DISPLAY_ERRORS=1
  socketio:
-  image: voduytuan/docker-socketio:latest
+  build: ./customBuilds/wtnz-socketio
+  image: amphaal/wtnz-socketio:latest
   container_name: socketio-server
   ports:
   - 3000:3000
