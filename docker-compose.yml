@@ -8,6 +8,7 @@ services:
   - 443:443
   volumes:
   - /var/www:/app
+  - /root/dockerstacks/wtnz-docker/vhost.conf:/opt/docker/etc/nginx/vhost.conf
   - /root/dockerstacks/wtnz-docker/wtnz.conf:/opt/docker/etc/nginx/vhost.common.d/wtnz.conf
   - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/cert.pem:/opt/docker/etc/nginx/ssl/server.crt
   - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/privkey.pem:/opt/docker/etc/nginx/ssl/server.key
