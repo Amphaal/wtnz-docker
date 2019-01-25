@@ -10,7 +10,7 @@ services:
   - /var/www:/app
   - /root/dockerstacks/wtnz-docker/vhost.conf:/opt/docker/etc/nginx/vhost.conf
   - /root/dockerstacks/wtnz-docker/wtnz.conf:/opt/docker/etc/nginx/vhost.common.d/wtnz.conf
-  - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/cert.pem:/opt/docker/etc/nginx/ssl/server.crt
+  - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/fullchain.pem:/opt/docker/etc/nginx/ssl/server.crt
   - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/privkey.pem:/opt/docker/etc/nginx/ssl/server.key
   restart: always
   environment:
@@ -24,6 +24,6 @@ services:
   volumes:
   - /var/www/wtnz/users_data:/srv/users_data
   - /var/www/socketnz/app.js:/srv/app.js
-  - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/cert.pem:/srv/server.crt
+  - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/fullchain.pem:/srv/server.crt
   - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/privkey.pem:/srv/server.key
   restart: always
