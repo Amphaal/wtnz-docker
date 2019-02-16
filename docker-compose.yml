@@ -22,7 +22,7 @@ services:
   ports:
   - 3000:3000
   volumes:
-  - /var/www/wtnz/users_data:/srv/users_data
+  - /var/www/wtnz/data:/srv/data
   - /var/www/socketnz/app.js:/srv/app.js
   - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/fullchain.pem:/srv/server.crt
   - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/privkey.pem:/srv/server.key
