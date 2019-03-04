@@ -21,10 +21,11 @@ services:
   container_name: socketio-server
   ports:
   - 3000:3000
+  - 9229:9229
   volumes:
   - /var/www/wtnz/data:/srv/data
-  - /var/www/socketnz/app.js:/srv/app.js
-  - /var/www/socketnz/handlers:/srv/handlers
+  - /var/www/socketnz/dist:/srv/dist
+  - /var/www/socketnz/package.json:/srv/package.json
   - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/fullchain.pem:/srv/server.crt
   - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/privkey.pem:/srv/server.key
   restart: always
