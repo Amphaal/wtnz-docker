@@ -1,23 +1,17 @@
 #copied FROM voduytuan/docker-socketio:latest
 
-FROM zzrot/alpine-node
+FROM node:10
 
-RUN apk add --update \
-    supervisor \
-  && rm -rf /var/cache/apk/*
-  
-RUN apk add --update alpine-sdk
-  
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-RUN /bin/mkdir -p /srv/logs
+#fix for nsfw
+USER root
+RUN mkdir /home/node/.npm-global
+ENV PATH=/home/node/.npm-global/bin:$PATH
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
 WORKDIR /srv
 
-RUN npm install --silent nodemon
-RUN npm install --silent socket.io
-RUN npm install --silent nsfw
+RUN npm install nodemon
+RUN npm install socket.io
+RUN npm install nsfw
 
-RUN npm dedupe
-
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["npm", "debug"]
