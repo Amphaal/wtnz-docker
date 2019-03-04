@@ -29,3 +29,4 @@ services:
   - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/fullchain.pem:/srv/server.crt
   - /etc/letsencrypt/live/${HOST_NAME}.${DOMAIN_NAME}/privkey.pem:/srv/server.key
   restart: always
+  command: npm run debug

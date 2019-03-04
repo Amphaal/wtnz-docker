@@ -13,5 +13,3 @@ WORKDIR /srv
 RUN npm install nodemon
 RUN npm install socket.io
 RUN npm install nsfw
-
-CMD ["npm", "debug"]
